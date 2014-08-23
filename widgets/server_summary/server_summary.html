@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="name">Nome</div>
+  <div class="metric">CPU</div>
+  <div class="metric">Memória</div>
+  <div class="metric">Disk IO</div>  
+</div>
+<div class="row server" data-foreach-server='servers'>
+  <div class="name" data-bind='server.name'></div>
+  <div class="metric" data-view="Meter" data-min="0" data-max="100" data-title="CPU" data-context-value="server.summary.cpu | shortenedNumber"></div>
+  <div class="metric" data-view="Meter" data-min="0" data-max="100" data-title="Memory" data-context-value="server.summary.memory | shortenedNumber"></div>
+  <div class="metric" data-view="Meter" data-min="0" data-max="100" data-title="Disk IO" data-context-value="server.summary.disk_io | shortenedNumber"></div>
+</div>

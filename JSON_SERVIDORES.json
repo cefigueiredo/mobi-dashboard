@@ -1,0 +1,227 @@
+{
+  "servers": [
+    {
+      "id": 3032280,
+      "account_id": 531582,
+      "name": "apc-lb-01-oi.alog.mobicare.com.br",
+      "host": "apc-lb-01-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.2,
+        "cpu_stolen": 0,
+        "disk_io": 0.04,
+        "memory": 9.78,
+        "memory_used": 807403520,
+        "memory_total": 8254390272,
+        "fullest_disk": 16.3,
+        "fullest_disk_free": 9996000000
+      }
+    },
+    {
+      "id": 3186734,
+      "account_id": 531582,
+      "name": "apc-oi-03.alog.mobicare.com.br",
+      "host": "apc-oi-03.alog.mobicare.com.br",
+      "reporting": false
+    },
+    {
+      "id": 3568479,
+      "account_id": 531582,
+      "name": "ip-172-31-29-152",
+      "host": "ip-172-31-29-152",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.73,
+        "cpu_stolen": 0.38,
+        "disk_io": 0.04,
+        "memory": 39.2,
+        "memory_used": 680525824,
+        "memory_total": 1735393280,
+        "fullest_disk": 14.9,
+        "fullest_disk_free": 6918000000
+      }
+    },
+    {
+      "id": 3568478,
+      "account_id": 531582,
+      "name": "ip-172-31-9-33",
+      "host": "ip-172-31-9-33",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:09:15+00:00",
+      "summary": {
+        "cpu": 0.63,
+        "cpu_stolen": 0.28,
+        "disk_io": 0.13,
+        "memory": 39.8,
+        "memory_used": 689963008,
+        "memory_total": 1735393280,
+        "fullest_disk": 14.9,
+        "fullest_disk_free": 6914000000
+      }
+    },
+    {
+      "id": 3548099,
+      "account_id": 531582,
+      "name": "tct-01-oigalera-oi.alog.mobicare.com.br",
+      "host": "tct-01-oigalera-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.67,
+        "cpu_stolen": 0,
+        "disk_io": 0.11,
+        "memory": 49.7,
+        "memory_used": 1995440128,
+        "memory_total": 4018143232,
+        "fullest_disk": 66.9,
+        "fullest_disk_free": 6146000000
+      }
+    },
+    {
+      "id": 3118540,
+      "account_id": 531582,
+      "name": "tct-mip-app-01.alog.mobicare.com.br",
+      "host": "tct-mip-app-01.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:09:15+00:00",
+      "summary": {
+        "cpu": 6.45,
+        "cpu_stolen": 0,
+        "disk_io": 0.19,
+        "memory": 50.8,
+        "memory_used": 1000341504,
+        "memory_total": 1968177152,
+        "fullest_disk": 57.3,
+        "fullest_disk_free": 7937000000
+      }
+    },
+    {
+      "id": 2679292,
+      "account_id": 531582,
+      "name": "tct-sgi-multirecarga-01.alog.mobicare.com.br",
+      "host": "tct-sgi-multirecarga-01.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.6,
+        "cpu_stolen": 0,
+        "disk_io": 0.06,
+        "memory": 56.5,
+        "memory_used": 1111490560,
+        "memory_total": 1968177152,
+        "fullest_disk": 10.3,
+        "fullest_disk_free": 42167000000
+      }
+    },
+    {
+      "id": 3342373,
+      "account_id": 531582,
+      "name": "webproxy-01-oi.alog.mobicare.com.br",
+      "host": "webproxy-01-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:09:15+00:00",
+      "summary": {
+        "cpu": 6.13,
+        "cpu_stolen": 0,
+        "disk_io": 0.21,
+        "memory": 10.1,
+        "memory_used": 198180864,
+        "memory_total": 1968177152,
+        "fullest_disk": 24.7,
+        "fullest_disk_free": 13991000000
+      }
+    },
+    {
+      "id": 3538759,
+      "account_id": 531582,
+      "name": "monitor.alog.mobicare.com.br",
+      "host": "monitor.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 9.02,
+        "cpu_stolen": 0,
+        "disk_io": 9.34,
+        "memory": 83.7,
+        "memory_used": 8680112128,
+        "memory_total": 10372513792,
+        "fullest_disk": 55.2,
+        "fullest_disk_free": 365413000000
+      }
+    },
+    {
+      "id": 3545618,
+      "account_id": 531582,
+      "name": "tct-02-oigalera-oi.alog.mobicare",
+      "host": "tct-02-oigalera-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.53,
+        "cpu_stolen": 0,
+        "disk_io": 0.17,
+        "memory": 48.9,
+        "memory_used": 1962934272,
+        "memory_total": 4018143232,
+        "fullest_disk": 63.3,
+        "fullest_disk_free": 6817000000
+      }
+    },
+    {
+      "id": 3545506,
+      "account_id": 531582,
+      "name": "tct-03-oigalera-oi.alog.mobicare",
+      "host": "tct-03-oigalera-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:09:15+00:00",
+      "summary": {
+        "cpu": 0.31,
+        "cpu_stolen": 0,
+        "disk_io": 0.1,
+        "memory": 70.1,
+        "memory_used": 1379926016,
+        "memory_total": 1968177152,
+        "fullest_disk": 65.8,
+        "fullest_disk_free": 6352000000
+      }
+    },
+    {
+      "id": 3538699,
+      "account_id": 531582,
+      "name": "tct-planoy-01-oi.alog.mobicare.c",
+      "host": "tct-planoy-01-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:10:16+00:00",
+      "summary": {
+        "cpu": 0.88,
+        "cpu_stolen": 0,
+        "disk_io": 0.08,
+        "memory": 48.2,
+        "memory_used": 1937768448,
+        "memory_total": 4018143232,
+        "fullest_disk": 36.8,
+        "fullest_disk_free": 11745000000
+      }
+    },
+    {
+      "id": 3538927,
+      "account_id": 531582,
+      "name": "tct-planoy-02-oi.alog.mobicare.c",
+      "host": "tct-planoy-02-oi.alog.mobicare.com.br",
+      "reporting": true,
+      "last_reported_at": "2014-08-21T00:09:15+00:00",
+      "summary": {
+        "cpu": 0.22,
+        "cpu_stolen": 0,
+        "disk_io": 0.14,
+        "memory": 51.1,
+        "memory_used": 2053111808,
+        "memory_total": 4018143232,
+        "fullest_disk": 43.8,
+        "fullest_disk_free": 10446000000
+      }
+    }
+  ]
+}
