@@ -1,14 +1,11 @@
 require 'dashing'
+require 'sinatra/activerecord'
 
-configure do
-  set :auth_token, 'YOUR_AUTH_TOKEN'
+configure :production, :development do
+  set :environment, ENV['RACK_ENV']
+  set :database, 'mysql://vagrant:vagrant@localhost:3306/dashboard_newrelic'
 
-  helpers do
-    def protected!
-     # Put any authentication code you want in here.
-     # This method is run before accessing any resource.
-    end
-  end
+  ActiveRecord::Base.estabilish_connection(:database)
 end
 
 map Sinatra::Application.assets_prefix do

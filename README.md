@@ -1,1 +1,4 @@
-Check out http://shopify.github.com/dashing for more information.
+
+RACK_ENV=production
+
+Instalar libmysqlclient-dev

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'sinatra-activerecord'
+gem 'mysql2'
 gem 'dashing'
 gem 'pry'
-## Remove this if you don't need a twitter widget.
+gem 'rest-client'
+
