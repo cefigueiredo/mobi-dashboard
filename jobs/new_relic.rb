@@ -3,7 +3,7 @@ require 'json'
 servers_raw = File.read('JSON_SERVIDORES.json')
 servers = JSON.parse(servers_raw)['servers'].map { |srv| srv}
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately
-SCHEDULER.every '10s', :first_in => 0 do |job|
+SCHEDULER.every '1m', :first_in => 0 do |job|
   servers = servers.map do |srv|
     if srv['summary']
       srv['summary']['cpu'] = rand
