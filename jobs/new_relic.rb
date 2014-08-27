@@ -1,6 +1,6 @@
 require 'json'
 
-servers_raw = File.read('/vagrant/dashboard/JSON_SERVIDORES.json')
+servers_raw = File.read('JSON_SERVIDORES.json')
 servers = JSON.parse(servers_raw)['servers'].map { |srv| srv}
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 SCHEDULER.every '10s', :first_in => 0 do |job|
