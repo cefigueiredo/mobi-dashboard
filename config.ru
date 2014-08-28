@@ -1,11 +1,13 @@
-require 'dashing'
 require 'sinatra/activerecord'
+require './models/account'
+require './models/account_check'
+require 'dashing'
 
 configure :production, :development do
-  set :environment, ENV['RACK_ENV']
-  set :database, 'mysql://vagrant:vagrant@localhost:3306/dashboard_newrelic'
+  set :environment, 'development'
+  set :database_file, 'config/database.yml'
 
-  ActiveRecord::Base.estabilish_connection(:database)
+  ActiveRecord::Base.connection
 end
 
 map Sinatra::Application.assets_prefix do

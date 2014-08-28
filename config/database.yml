@@ -1,17 +1,15 @@
 development:
   adapter: mysql2
-  encoding: utf8
   database: dashboard_newrelic
   host: localhost
-  port: 3306
-  username: vagrant
+  pool: 5
+  username: root
   password: vagrant
 
 production:
   adapter: mysql2
-  encoding: utf8
   database: dashboard_newrelic
   host: localhost
-  port: 3306
+  pool: 5
   username: mysql
   password: mysql
