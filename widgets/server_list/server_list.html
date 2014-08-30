@@ -6,7 +6,7 @@
 </div>
 <a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' target="_blank">
   <div class="name" data-bind='server.name'></div>
-  <div class="metric cpu" data-bind='server.summary.cpu'></div>
+  <div class="metric cpu" data-view="InfoProgress" data-context-value='server.summary.cpu' data-size="46" data-metric="%" data-title="CPU" data-complement="% utilizado"></div>
   <div class="metric memory" data-bind='server.summary.memory'></div>
   <div class="metric io" data-bind='server.summary.disk_io'></div>
   <div class="metric check" data-bind="server.check.date | dateFormat 'L HH:mm' "></div>
