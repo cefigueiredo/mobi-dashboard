@@ -1,12 +1,15 @@
 .widget-info-progress {
+  display: inline-block;
+  padding: 5px !important;
+
   .infobox-container {
     text-align: center;
     font-size: 0;
   }
   .infobox {
     display: inline-block;
-    width: 210px;
-    height: 66px;
+    width: 150px;
+    height: 57px;
     color: #555;
     background-color: #FFF;
     box-shadow: none;
@@ -295,6 +298,19 @@
     display: inline-block;
     vertical-align: top;
     width: 44px;
+
+    .infobox-data {
+      top: 0px;
+      position: absolute;
+      margin-left: 50px;
+
+      .infobox-text {
+        font-weight: bold;
+      }
+      .infobox-complement {
+        font-size: 12px;
+      }
+    }
   }
   .infobox > .infobox-chart {
     padding-top: 0;
@@ -456,6 +472,12 @@
     font-weight: bold;
     display: inline-block;
     vertical-align: top;
+    width: inherit;
+    height: inherit;
+    border-radius: 22px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip:    padding;
+    background-clip:         padding-box;
   }
   .infobox-small .progress {
     font-size: 13px;
