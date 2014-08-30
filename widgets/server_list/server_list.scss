@@ -1,0 +1,16 @@
+.widget-server-list {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  .name {
+    display: inline-block;
+    width: 400px;
+  }
+
+  .metric {
+    display: inline-block;
+    width: 60px;
+    max-height: 90px !important;
+  }
+}
