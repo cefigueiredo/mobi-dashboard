@@ -6,8 +6,6 @@ require 'dashing'
 configure :production, :development do
   set :environment, 'development'
   set :database_file, 'config/database.yml'
-
-  ActiveRecord::Base.connection
 end
 
 map Sinatra::Application.assets_prefix do

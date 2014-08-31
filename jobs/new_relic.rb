@@ -3,10 +3,11 @@ require 'rest-client'
 require 'pry'
 require 'date'
 
+@accounts = Account.all
 
 def servers_check
   resource = RestClient::Resource.new('https://api.newrelic.com/v2')
-  Account.all.map do |account|
+  @accounts.map do |account|
     result = resource['servers.json'].get('X-Api-Key' => account.api_key)
     check = AccountCheck.create( :account => account,
                          :status  => result.headers[:status],
@@ -20,4 +21,5 @@ end
 SCHEDULER.every '1m', :first_in => 0 do |job|
   servers = servers_check.flatten
   send_event('my_widget', { servers: servers })
+  ActiveRecord::Base.connection.close
 end
