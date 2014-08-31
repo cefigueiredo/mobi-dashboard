@@ -1,5 +1,10 @@
 class Dashing.InfoProgress extends Dashing.Widget
 
+  onstructor: ->
+    super
+    @observe 'server', (value) ->
+      $(@node).find(".easy-pie-chart").val(value).trigger('change')
+
   ready: ->
     # This is fired when the widget is done being rendered
     @chart = $(@node).find('.easy-pie-chart.percentage').each(

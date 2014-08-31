@@ -4,15 +4,32 @@
   margin-right: auto;
 
   .server {
-    height: 60px;
+    height: 66px;
+    display: inline-block;
+    position: relative;
+    margin: 5px 0px;
+
+    &:hover {
+      background-color: rgba(152, 158, 177, 0.28)
+    }
   }
 
   .name {
     display: inline-block;
-    width: 400px;
+    width: 450px;
+    margin-right: 485px;
+    height: inherit;
+
+    .check {
+      color: #555;
+      font-size: 12px;
+    }
   }
 
   .metric {
     display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
 }

@@ -1,8 +1,11 @@
 <a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' target="_blank">
-  <div class="name" data-bind='server.name'></div>
-  <div class="cpu" data-view="InfoProgress" data-context-value='server.summary.cpu' data-size="40" data-metric="percentage" data-title="CPU" data-complement="% utilizado"></div>
-  <div class="memory" data-view="InfoProgress" data-context-value='server.summary.memory' data-size="40" data-metric="percentage" data-title="Memória" data-complement="% livre"></div>
-  <div class="disk_io" data-view="InfoProgress" data-context-value='server.summary.disk_io' data-size="40" data-metric="percentage" data-title="Disk I/O" data-complement=""></div>
-
-  <div class="check col-md-4" data-bind="server.check.date | dateFormat 'L HH:mm' "></div>
+  <div class='name'>
+    <div data-bind='server.name'></div>
+    <div class="check" data-bind="server.last_reported_at | dateFormat 'L HH:mm' | prepend 'Ultimo report em: ' "></div>
+  </div>
+  <div class='metric'>
+    <div class="cpu" data-view="InfoProgress" data-context-value='server.summary.cpu' data-size="40" data-metric="percentage" data-title="CPU" data-complement="% utilizado"></div>
+    <div class="memory" data-view="InfoProgress" data-context-value='server.summary.memory' data-size="40" data-metric="percentage" data-title="Memória" data-complement="% livre"></div>
+    <div class="disk_io" data-view="InfoProgress" data-context-value='server.summary.disk_io' data-size="40" data-metric="percentage" data-title="Disk I/O" data-complement=""></div>
+  </div>
 </a>
