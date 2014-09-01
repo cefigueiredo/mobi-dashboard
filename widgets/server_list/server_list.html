@@ -4,8 +4,8 @@
     <div class="check" data-bind="server.last_reported_at | dateFormat 'L HH:mm' | prepend 'Ultimo report em: ' "></div>
   </div>
   <div class='metric'>
-    <div class="cpu" data-view="InfoProgress" data-context-value='server.summary.cpu' data-size="40" data-metric="percentage" data-title="CPU" data-complement="% utilizado"></div>
-    <div class="memory" data-view="InfoProgress" data-context-value='server.summary.memory' data-size="40" data-metric="percentage" data-title="Memória" data-complement="% livre"></div>
-    <div class="disk_io" data-view="InfoProgress" data-context-value='server.summary.disk_io' data-size="40" data-metric="percentage" data-title="Disk I/O" data-complement=""></div>
+    <div class="cpu" data-view="StatusLight" data-title="CPU" data-context-content="server.summary.cpu | shortenedNumber | append '% utilizado'"></div>
+    <div class="memory" data-view="StatusLight" data-title="Memória" data-context-content="server.summary.memory | shortenedNumber | append '% livre'"></div>
+    <div class="hd" data-view="StatusLight" data-title="HD" data-context-content="server.summary.fullest_disk_free | shortenedNumber | append ' livres'"></div>
   </div>
 </a>
