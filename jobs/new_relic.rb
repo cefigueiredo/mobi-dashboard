@@ -3,11 +3,20 @@ require 'rest-client'
 require 'date'
 
 @accounts = Account.all
+@account_status = {}
+@alert_policies = []
 
 def servers_check
   @accounts.map do |account|
     result = JSON.parse resource(account, 'servers')
     result['servers']
+  end
+end
+
+def alert_policies
+  @alert_policies = @accounts.map do |account|
+    result = JSON.parse resource(account, 'alert_policies', 'filter[enabled]' => true, 'filter[type]' => 'server')
+    result.merge({'account' => account.attributes})
   end
 end
 
@@ -23,6 +32,16 @@ def resource(account, subject, params = {})
 end
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-  send_event('my_widget', { servers: servers_check.flatten })
+  servers = servers_check.flatten
+  alert_policies if @alert_policies.empty?
+  send_event('my_widget', { servers: servers, alert_policies: @alert_policies, status_accounts: @account_status })
+
+  ActiveRecord::Base.connection.close
+end
+
+SCHEDULER.every '1h', :first_in => 0 do |job|
+  @accounts = Account.all
+  @alert_policies = alert_policies
+
   ActiveRecord::Base.connection.close
 end
