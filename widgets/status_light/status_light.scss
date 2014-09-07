@@ -5,4 +5,18 @@
   .title {
     display: inline-block;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  .icon-ok-sign {
+    color: rgb(43, 158, 43);
+  }
+  .icon-warning-sign {
+    color: rgb(234, 134, 36);
+  }
+  .icon-exclamation-sign {
+    color: rgb(234, 36, 36);
+  }
 }

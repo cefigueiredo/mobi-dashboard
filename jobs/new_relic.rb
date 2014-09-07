@@ -16,8 +16,10 @@ end
 def alert_policies
   @alert_policies = @accounts.map do |account|
     result = JSON.parse resource(account, 'alert_policies', 'filter[enabled]' => true, 'filter[type]' => 'server')
-    result.merge({'account' => account.attributes})
-  end
+    result['alert_policies'].map do |pol_group|
+      pol_group['conditions'].map {|policy| policy.merge({'account_id' => account.id})}
+    end
+  end.flatten
 end
 
 def resource(account, subject, params = {})
@@ -34,7 +36,7 @@ end
 SCHEDULER.every '1m', :first_in => 0 do |job|
   servers = servers_check.flatten
   alert_policies if @alert_policies.empty?
-  send_event('my_widget', { servers: servers, alert_policies: @alert_policies, status_accounts: @account_status })
+  send_event('my_widget', { servers_data: servers, alert_policies: @alert_policies, status_accounts: @account_status })
 
   ActiveRecord::Base.connection.close
 end

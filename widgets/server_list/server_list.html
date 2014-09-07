@@ -1,11 +1,11 @@
-<a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' target="_blank">
+<a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' data-source-account-id='server.account_id' target="_blank">
   <div class='name'>
     <div data-bind='server.name'></div>
     <div class="check" data-bind="server.last_reported_at | dateFormat 'L HH:mm' | prepend 'Ultimo report em: ' "></div>
   </div>
   <div class='metric'>
-    <div class="cpu" data-view="StatusLight" data-title="CPU" data-context-content="server.summary.cpu | shortenedNumber | append '% utilizado'"></div>
-    <div class="memory" data-view="StatusLight" data-title="Memória" data-context-content="server.summary.memory | shortenedNumber | append '% livre'"></div>
-    <div class="hd" data-view="StatusLight" data-title="HD" data-context-content="server.summary.fullest_disk_free | shortenedNumber | append ' livres'"></div>
+    <div class="cpu" data-view="StatusLight" data-title="CPU" data-context-content="server.summary.cpu | shortenedNumber | append '% utilizado'" data-context-status="server.status.cpu"></div>
+    <div class="memory" data-view="StatusLight" data-title="Memória" data-context-content="server.summary.memory | shortenedNumber | append '% livre'"  data-context-status="server.status.memory"></div>
+    <div class="hd" data-view="StatusLight" data-title="HD livre" data-context-content="server.summary.fullest_disk | shortenedNumber | append '% livre'"  data-context-status="server.status.fullest_disk"></div>
   </div>
 </a>
