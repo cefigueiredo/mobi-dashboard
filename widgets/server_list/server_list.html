@@ -1,7 +1,8 @@
 <a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' data-source-account-id='server.account_id' target="_blank">
-  <div class='name'>
-    <div data-bind='server.name'></div>
-    <div class="check" data-bind="server.last_reported_at | dateFormat 'L HH:mm' | prepend 'Ultimo report em: ' "></div>
+  <div class='details'>
+    <span class="label label-default account" data-bind='server.account_name'></span>
+    <div class="name" data-bind='server.name'></div>
+    <div class="check" data-bind="server.last_reported_at | dateFormat 'L HH:mm' | default '--/--/---- --:--'"></div>
   </div>
   <div class='metric'>
     <div class="cpu" data-view="StatusLight" data-title="CPU" data-context-content="server.summary.cpu | shortenedNumber | append '% utilizado'" data-context-status="server.status.cpu"></div>

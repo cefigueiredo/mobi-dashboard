@@ -29,7 +29,7 @@ def resource(account, subject, params = {})
       :account => account,
       :status  => result.headers[:status],
       :date    => Time.parse(result.headers[:date]).getlocal('-03:00')
-    )
+    ).attributes.merge(account_name: account.name)
   end
 end
 

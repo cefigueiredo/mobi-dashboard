@@ -13,15 +13,37 @@
     }
   }
 
-  .name {
+  .details {
     display: inline-block;
-    width: 450px;
-    margin-right: 485px;
+    width: 500px;
+    margin-right: 300px;
     height: inherit;
 
+    .name {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+      margin: 0px 12px;
+      width: 300px;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .account {
+      font-size: 10px;
+      vertical-align: middle;
+      display: inline-block;
+      padding: 5px;
+      min-width: 60px;
+    }
     .check {
       color: #555;
       font-size: 12px;
+      display: inline-block;
+      width: 105px;
     }
   }
 

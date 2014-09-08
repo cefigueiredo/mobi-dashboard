@@ -21,11 +21,13 @@ class Dashing.ServerList extends Dashing.Widget
     servers = @get('servers_data')
     serverSet = new Batman.Set()
     all_policies = @get('alert_policies')
+    accounts = @get('status_accounts')
 
     _(servers).forEach(
       (srv) ->
         policies = _(all_policies).filter((pol) -> pol.account_id == srv.account_id)
-        serverSet.add(new Server(srv, {policies: policies})))
+        account = accounts[srv.account_id]
+        serverSet.add(new Server(srv, {policies: policies, account_name: account.account_name})))
     _(serverSet.toArray()).sortBy((x) -> -x.reporting)
 
 
