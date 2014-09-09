@@ -8,8 +8,8 @@ development:
 
 production:
   adapter: mysql2
-  database: dashboard_newrelic
-  host: localhost
-  pool: 5
-  username: mysql
-  password: mysql
+  database: heroku_c0d09a2c71152de
+  host: us-cdbr-iron-east-01.cleardb.net
+  pool: 10
+  username: b1fc2f55d59495
+  password: 19cf707c

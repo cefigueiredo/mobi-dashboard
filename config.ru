@@ -3,10 +3,9 @@ require './models/account'
 require './models/account_check'
 require 'dashing'
 
-configure :production, :development do
-  set :environment, 'development'
-  set :database_file, 'config/database.yml'
-end
+set :environment, ENV['RACK_ENV'] || 'development'
+
+set :database_file, 'config/database.yml'
 
 map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
