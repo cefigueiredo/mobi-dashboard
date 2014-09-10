@@ -2,7 +2,17 @@ class Dashing.ServerList extends Dashing.Widget
   @accessor 'servers', ->
     servers = @get('servers_data')
 
-    _(servers).sortBy((x) -> -x.reporting)
+    _(servers).sortBy((x) ->
+      return 99999 unless x.reporting
+      metrics = []
+      Batman.forEach(x.status, (key, val) -> metrics.push(val))
+      _(metrics).reduce((memo, status) ->
+        memo + switch status
+          when 'critical' then 1
+          when 'caution' then 2
+          when 'ok' then 4
+      , 0)
+    )
 
 
   ready: ->
