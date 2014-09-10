@@ -1,34 +1,8 @@
-class Server extends Batman.Object
-
-  @accessor 'status', ->
-    new Batman.TerminalAccessible (subject) =>
-      if @get('reporting')
-        subject_value = @get('summary')[subject]
-        policy = _.chain(@get('policies'))
-          .filter((policy) -> policy.type == subject )
-          .sortBy((policy) -> -policy.threshold)
-          .find((limit) -> subject_value >= limit.threshold)
-          .value()
-
-        if _(policy).isUndefined()
-          'ok'
-        else
-          policy.severity
-
-
 class Dashing.ServerList extends Dashing.Widget
   @accessor 'servers', ->
     servers = @get('servers_data')
-    serverSet = new Batman.Set()
-    all_policies = @get('alert_policies')
-    accounts = @get('status_accounts')
 
-    _(servers).forEach(
-      (srv) ->
-        policies = _(all_policies).filter((pol) -> pol.account_id == srv.account_id)
-        account = accounts[srv.account_id]
-        serverSet.add(new Server(srv, {policies: policies, account_name: account.account_name})))
-    _(serverSet.toArray()).sortBy((x) -> -x.reporting)
+    _(servers).sortBy((x) -> -x.reporting)
 
 
   ready: ->

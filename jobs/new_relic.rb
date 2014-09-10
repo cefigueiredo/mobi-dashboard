@@ -4,22 +4,37 @@ require 'date'
 
 @accounts = Account.all
 @account_status = {}
-@alert_policies = []
 
 def servers_check
   @accounts.map do |account|
     result = JSON.parse resource(account, 'servers')
-    result['servers']
+    alert_policies = alert_policies(account)
+    result['servers'].map do |server|
+      serialize_server(account, server, alert_policies)
+    end
   end
 end
 
-def alert_policies
-  @alert_policies = @accounts.map do |account|
-    result = JSON.parse resource(account, 'alert_policies', 'filter[enabled]' => true, 'filter[type]' => 'server')
-    result['alert_policies'].map do |pol_group|
-      pol_group['conditions'].map {|policy| policy.merge({'account_id' => account.id})}
-    end
+def alert_policies(account)
+  result = JSON.parse resource(account, 'alert_policies', 'filter[enabled]' => true, 'filter[type]' => 'server')
+  result['alert_policies'].map do |pol_group|
+    pol_group['conditions']
   end.flatten
+end
+
+def serialize_server(account, server, policies)
+  server = server.merge({'status' => {'memory' => nil, 'cpu' => nil, 'fullest_disk' => nil}, 'account_name' => account.name})
+  unless server['reporting']
+    return server
+  end
+
+  policies = policies.group_by { |pol| pol['type'] }
+  ['memory', 'cpu', 'fullest_disk'].each do |metric|
+    status = policies[metric].sort_by{|pol| -pol['threshold'] }.find{ |pol| pol['threshold'] <= server['summary'][metric]}
+    status = status ? status['severity'] : 'ok'
+    server['status']["#{metric}"] = status
+  end
+  server
 end
 
 def resource(account, subject, params = {})
@@ -35,15 +50,7 @@ end
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
   servers = servers_check.flatten
-  alert_policies if @alert_policies.empty?
-  send_event('my_widget', { servers_data: servers, alert_policies: @alert_policies, status_accounts: @account_status })
-
-  ActiveRecord::Base.connection.close
-end
-
-SCHEDULER.every '1h', :first_in => 0 do |job|
-  @accounts = Account.all
-  @alert_policies = alert_policies
+  send_event('my_widget', { servers_data: servers, status_accounts: @account_status })
 
   ActiveRecord::Base.connection.close
 end
