@@ -19,4 +19,4 @@ Dashing.on 'ready', ->
 
 setInterval(() ->
   document.location.reload(true)
-,600000)
+,300000)

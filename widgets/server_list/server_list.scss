@@ -3,6 +3,21 @@
   margin-left: auto;
   margin-right: auto;
 
+  .status-accounts {
+    font-size: 16px;
+
+    .last-request { display: inline-block; }
+    .accounts {
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .account {
+      display: inline-block;
+      padding: 5px 10px;
+    }
+  }
+
   .server {
     display: inline-block;
     position: relative;

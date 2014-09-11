@@ -50,7 +50,7 @@ end
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
   servers = servers_check.flatten
-  send_event('my_widget', { servers_data: servers, status_accounts: @account_status })
+  send_event('my_widget', { servers_data: servers, status_accounts: @account_status.values })
 
   ActiveRecord::Base.connection.close
 end

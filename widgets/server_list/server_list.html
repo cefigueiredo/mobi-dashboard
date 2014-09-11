@@ -1,3 +1,12 @@
+<div class="status-accounts">
+  <div class="last-request" data-bind="lastRequest | dateFormat 'L HH:mm' | default '--/--/---- --:--'"></div>
+  <div class="accounts">
+    <div class="account" data-foreach-account='accounts' data-bind-title='account.status'>
+      <span class="name" data-bind="account.account_name | append ' - '"></span>
+      <span class="status" data-bind="account.status | truncate 3, ''"></span>
+    </div>
+  </div>
+</div>
 <a data-bind-href="'https://rpm.newrelic.com/accounts/%{account}/servers/%{server}' | interpolate {'account': 'server.account_id', 'server': 'server.id'}" class="row server" data-foreach-server='servers' data-bind-id='server.id' data-source-account-id='server.account_id' target="_blank">
   <div class='details'>
     <span class="label label-default account" data-bind='server.account_name'></span>

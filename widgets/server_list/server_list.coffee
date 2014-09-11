@@ -14,6 +14,12 @@ class Dashing.ServerList extends Dashing.Widget
       , 0)
     )
 
+  @accessor 'accounts', ->
+    @get('status_accounts')
+
+  @accessor 'lastRequest', ->
+    status = _.max(@get('status_accounts'), (x) -> moment(x.date))
+    moment(status.date)
 
   ready: ->
     # This is fired when the widget is done being rendered
