@@ -19,7 +19,6 @@ class Dashing.ServerList extends Dashing.Widget
     # This is fired when the widget is done being rendered
 
   onData: (data) ->
-    @policiesHash_ = _.groupBy @get('policies'), (pol) -> pol.type
 
     # Handle incoming data
     # You can access the html node of this widget with `@node`
