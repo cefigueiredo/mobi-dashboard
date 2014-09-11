@@ -16,3 +16,7 @@ Dashing.on 'ready', ->
   Dashing.numColumns ||= 4
 
   contentWidth = (Dashing.widget_base_dimensions[0] + Dashing.widget_margins[0] * 2) * Dashing.numColumns
+
+setInterval(() ->
+  document.location.reload(true)
+,600000)
