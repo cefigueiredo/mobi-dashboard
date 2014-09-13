@@ -1,4 +1,3 @@
-
 ##Procedimentos de Instalação: 
 ### Dependências externas:
 Para a instalação do projeto, é preciso que seja instalado no sistema operacional os seguintes softwares:
@@ -38,6 +37,7 @@ Após a instalação do projeto, é preciso rodar a rake responsável por gerar 
 
 O comando para gerar as tabelas na base de dados é `rake db:migrate`
 
+### Execução da aplicação
 Feita a configuração do banco com sucesso, para executar a aplicação é preciso rodar o comando:
 
 `bundle exec thin start -R config.ru -e $RACK_ENV`
