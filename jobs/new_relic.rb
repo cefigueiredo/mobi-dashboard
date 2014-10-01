@@ -49,8 +49,12 @@ def resource(account, subject, params = {})
 end
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-  servers = servers_check.flatten
-  send_event('my_widget', { servers_data: servers, status_accounts: @account_status.values })
+  begin
+    ActiveRecord::Base.verify_active_connections! if ActiveRecord::Base.respond_to?(:verify_active_connections!)
 
-  ActiveRecord::Base.connection.close
+    servers = servers_check.flatten
+    send_event('my_widget', { servers_data: servers, status_accounts: @account_status.values })
+  ensure
+    ActiveRecord::Base.clear_active_connections!
+  end
 end
